@@ -1,0 +1,19 @@
+{
+  "name": "locator",
+  "version": "1.0.0",
+  "description": "System to organize schedule of a spot",
+  "main": "app.js",
+  "scripts": {
+    "test": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jose-Ferreira-Neto/locator.git"
+  },
+  "author": "José Ferreira Neto",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jose-Ferreira-Neto/locator/issues"
+  },
+  "homepage": "https://github.com/Jose-Ferreira-Neto/locator#readme"
+}
