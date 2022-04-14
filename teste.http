@@ -1,0 +1,11 @@
+POST http://localhost:8081/cadastrar
+Content-Type: application/json
+
+{
+        "name.fristName":"Jose",
+        "name.lastName":"Ferreira Neto",
+        "admin":true,
+        "age":18,
+        "email":"jose.",
+        "senha":12345678
+}
