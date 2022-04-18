@@ -60,3 +60,17 @@ NomeDoAtributo: PropTypes.**tipoDaVariável**.isRequired*se obrigatório*
 NomeDoComponente.defaultProps = {
 NomeDoAtributo: 'VALOR PADRÃO'
 }
+
+
+NO MEU useState, tava dando errado porque eu não estava atribuindo o valor da maneira correta que é :
+
+onChange={varQualquer=>setNomeDoState(varQualquer.target.value)}
+*PARA FUNÇÕES*
+
+dentro do método construtor botar
+this.handleChange = this.handleChange.bind(this) //PARA QUE A FUNÇÃO LEMBRE-SE DAS SUAS PROPRIEDADES
+
+e crio, por fim, a função:
+
+handleChange(e){
+this.setState({KeyAAlterar:e.target.value})}

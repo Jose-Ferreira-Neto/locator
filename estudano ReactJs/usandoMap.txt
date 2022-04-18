@@ -1,0 +1,48 @@
+Map é uma forma de pegar um conjunto de dados e transformar em outro conjunto de dados como desejar
+(i.e. pegar um array = [1,2,3,4,5,6] e transformar esse conjunto de dados em outro conjunto ordenado, fazemos:
+array.map(x=>x*2)//AQUI TODOS OS ELEMENTO SERÃO MULTIPLICADOS POR 2
+)
+
+podemos gerar um conjunto de elementos a partir de maps, por exemplo:
+temos um array com nomes, queremos exibir esses nomes como listas, então fazemos:
+
+arrayComNomes.map((nome, index)=>(
+<li key={index}>nome<li>
+))
+
+**NOTE: o map possui um callback que pode devolver o valor dentro de cada item da sequência do array, assim como, o index desses elementos, como fazemos uma lista, precisamos demonstrar ao react que temos um conjunto ordenado de elemento que devem seguir uma ordem (fica mais facil para esse manipular , atualizar ou deixar como está) então atribuímos o key={} para que ele possa identificar essa ordem.
+
+O MAP PODE SER UTILIZADO COM OBJETOS DENTRO DO ARRAY, ASSIM COMO COM OUTROS COMPONENTES
+
+EXEMPLO DE CÓDIGO 
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {value: 'pêra'};
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({value: event.target.value});
+  }
+  render() {
+    const nome = [{nome:'jose', id:1}, {nome:'pedro', id:2}, {nome:'joao', id:3}, {nome:'patrick', id:4}]
+    const name = ['jose', 'pedro', 'joao','patrick']
+    return (
+     <>
+     <ul>
+       {nome.map(conteudo=>(
+         <li key={conteudo.id}>{conteudo.nome}</li>
+       ))}
+        {name.map((content, index)=>(
+          <li key={index}>{content}</li>
+        ))}
+     </ul>
+     </>
+    );
+  }
+}
+export default App;
