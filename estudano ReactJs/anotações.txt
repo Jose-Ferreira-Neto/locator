@@ -1,0 +1,62 @@
+Crato, Ceará, 18 de Abril de 2022.
+No dia de hoje estou na 6 aula de ReactJS, aprendi:
+1-Que utilizamos o JSX na programação em react, que consistem em um tipo de html misturado com JS
+2-O objetivo do uso de react é para componetizar o projeto de modo que possa utilizar cada componenete para cumprir um todo, por exemplo, um tipo de botão específico pode ser utilizado várias vezes, então, ao invés de criar todas essas vezes, apenas criamos-o como componente e reutilizamos sempre que preciso.
+3-Os componentes são criados como função ou classe, v.g(
+module exports function App(){
+return(
+	*CRIE AQUI O COMPONETNE*
+)
+}
+ou como classe:
+class App extends React.component{
+	render(
+		return(
+			*CRIE AQUI O COMPONETE QUE DESEJE*
+		);
+	)}
+module exports App;
+
+)
+4-podemos passar propriedades (props) entre componente, sempre do pai para o filho.
+ex. <ComponenteFilho NomeDaPropriedade={PropDesejada}>
+podendo ser acessada dentro da filha com a invocação da prop, v.g(
+function App(props){
+prop.nome *EXIBIRIA O NOME, CASO FOSSE PASSADO COMO PROP*
+
+//para encurtar toda a invocção, fazemos o seguinte
+
+function App({nome}){
+nome *TERIA O MESMO VALOR DER PROPS.NOME*
+}
+}
+
+EM COMPONENTES DE CLASSE
+class App extends from React.Component{
+construcor(props){
+super(props);
+const {nome}=props;
+}
+}
+
+
+
+)
+5-PODEMOS ESTILIZAR AS APLICAÇÕES COM CSS IMPORTANTO IGUAL NO REACT-NATIVE
+6-ESTUDEI PROPS AVANÇADO, ISTO É, agora podemos passar a exigir o tipo da props, ou seja, number, string, boolean..., do mesmo modo, podemos exigir o requried, para isso:
+
+
+import PropTypes from 'prop-types'
+
+	componente de função ou classe**
+
+		//note que aqui criamos um atributo à função e não o método PropTypes em si
+NomeDoComponente.propTypes = {
+NomeDoAtributo: PropTypes.**tipoDaVariável**.isRequired*se obrigatório*
+}
+
+
+	//PASSANDO VALORES POR PADRÃO
+NomeDoComponente.defaultProps = {
+NomeDoAtributo: 'VALOR PADRÃO'
+}

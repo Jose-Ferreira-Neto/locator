@@ -18,6 +18,8 @@ app.post('/cadastrar', async (req, res)=>{
         console.log('ERRO AO INSERIR NO BANCO');
     }
 });
-
+app.get('/', (req, res)=>{
+    CreateUser.find({}).then(dados => res.render('main', {dados})).catch(error=>console.log('ERRO:', error));
+});
 let port = 8081;
 app.listen(port, ()=>console.log(`listening on port: ${port}`))

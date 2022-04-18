@@ -23,7 +23,7 @@ body{
     border-radius: 20px;
     padding: 10px;
     margin: 10px;
-    box-shadow: 0 0 5px 0 #000;
+    box-shadow: 0 0 8px 0 #fff;
     display: flex;
     justify-content: flex-start;
     align-items: center;

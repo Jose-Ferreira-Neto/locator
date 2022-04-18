@@ -1,0 +1,8 @@
+EVENTO:
+Quando vamos criar um evento colocamos a função chamadora em um listener dentro da própria tag, assim:
+	<Evento onClick={Evento}
+
+*NOTA, SE COLOCAR Evento(), ele não vai esperar o click e vai invocar assim que renderizado*
+*OS EVENTOS NORMALMENTE ESTÃO PRESENTES NO PRÓPRIO COMPONENTE OU SÃO PASSADOS PARA OS FILHOS COMO PROPS*
+
+onSubmit={} aqui tratamos de um evento que envia informações para o backEnd, passando por rotas, normalmente atribuído a forms
