@@ -1,0 +1,20 @@
+NO REACT PODEMOS FAZER A RENDERIZAÇÃO CONDICIONAL DE 3 TIPOS
+
+1º IF & ELSE (E TODOS OS OPERADORES LÓGICOS), EX:
+if(userLoged){
+return <p>USUÁRIO LOGADO</p>
+}
+*PODEMOS USAR ELSE TUDO MAIS*
+
+2ºOPERADOR TERNÁRIO:
+
+condição?CONDIÇÃO SE TRUE: CONDIÇÃO SE FALSE, ex:
+userLoged?<p>USUÁRIO LOGADO</p>:<p>USUÁRIO NÃO LOGADO</p>
+
+3ºCONDIÇÃO &&:
+
+Quando utilizamos JS dentro dos JSX podemos abrir {} e criarmos condições de renderização dentro desses, da seguinte maneira:
+
+<div>
+{condicao && <p>SE A CONDIÇÃO FOR TRUE, ESSE ELEMENTO SERÁ RENDERIZADO</p>}
+</div>
