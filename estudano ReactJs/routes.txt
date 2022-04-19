@@ -1,0 +1,107 @@
+UTILIZAMOS ROUTES PARA FUNCIONAR TAL QUAL O HANDLEBARS, ENTRETANTO, A TELA NÃO RECARREGA QUANDO ALTERADA, E APENAS O CONTEÚDO INDICADO ALTERA-SE, ALTERA O CONTEÚDO DA PÁGINA SEM CARREGAR;
+IMGAINE UMA PESSOA TROCANDO DE CAMISA, ENTRETANTO, A TROCA É INSTANTÂNEA;
+COMO USAR:
+1ºDEVE-SE INSTALAR O react-router-dom
+2ºimportar no projeto:
+import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
+3ºRouter = envolve todo o projeto tal qual o ReactNavigation, a fim de controlar todo o fluxo de rotas, logo abaixo dele definimos o elemento que queremos que fique estático na tela, p.e, uma navbar. 
+*A unica coisa que deve ser observada é a inserção do Link, elemento responsável por indicar para onde aquele botão vai levar (funciona tal qual um <a> no html)*
+**NORMALMENTE O COMPONENTE AQUI É EXTRAÍDO**
+4ºLink = indica para onde o elemento vai levar com o to=''
+5ºSwitch = é o elemento que vai encapsular todas as rotas, dentro dele ficam o route que indica individualmente cada rota
+5º = indica individualmente cada roda, encaminhando a rota do navagador ao componente pela sua path
+
+*NOTE QUE, PARA A ROTA PRINCIPAL, QUE DECLARAMOS, NORMALMENTE COM /, DEVEMOS DEFINIR NA Route DESSE CAMINHO QUE O CAMINHO É EXATO*
+
+I.e.;
+
+import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom'
+import Home from './componetns/home'
+import Navbar from './components/Navbar'
+<Router>
+<Navbar/>//Abaixo defino o que contém no Navbar
+<Switch>
+<Route exact path='/'>
+<Home>
+</Route>
+</Switch>
+</Router>
+
+
+//Switch
+import {Link} from 'react-router-dom'
+function Switch(){
+<>
+<ul><Link to='/home'><li>TELA home</li></link></ul>
+<ul><Link to='/empresa'><li>TELA empresa</li></link></ul>
+<ul><Link to='/contato'><li>TELA contato</li></link></ul>
+</>
+}
+export default Switch
+
+Nasted:
+ Quando se aninha as Routes a fim de que uma possa ser a master de um conjunto de outras
+<Route path='/' element={ComponentePaiQueVaiReceberTodosOsFilhos}>
+	<Route path='aninhado' element={<ComponenteParaSerRenderizado/>}/>
+	<Route path='rota' element={ComponenteParaSerRenderizado}/>
+</Route>
+
+1*Dentro do elemento pai deve conter uma Tag <Outlet/>, essa é responsável por fazer a troca seu conteúdo interno conforme o link muda
+2*Podemos definir uma rota como index para quando não houver seleção de rota, ser exibido um componente desejado
+3*Podemos definir um elemento com path='*' para informarmos que, quando nenhuma rota for encontrada, essa deverá ser renderizada
+4* Podemos passar parâmetros por rotas aninhadas, i.e,
+<Route path='cargo' element={<Cargo/>}>
+	<Route path=':ParametroDeRota' element={<Element/>/>
+</Route> 
+
+Ademais, utilizamos os componetnes useSearchParams para recebermos o estado atual do(s) parâmetro(s) passados por rota, isto é, aqueles :Parametro, da seguinte maneira
+
+const [searchParams, setSearchParams]=useSearchParams()
+//E o configuramos, normalmente dentro de input, assim
+<input value={searchParams.get('filter')||''} 
+//aqui indicamos para ele que seu valor é tudo após do filter=
+onChange={(event)=>{let filter = event.target.value
+if(filter){
+setSearchParams({filter})
+}
+else{
+setSearchParams({})
+}
+}}/>
+//PRONTO, AGORA O ESTATE LÊ O VALOR DO PARÂMETRO, AGORA VAMOS FILTAR NO elemento que renderiza a lista
+
+{elemento.filter(
+(elemento)=>{
+let filter = searchParams.get('filter)
+if(!filter) return true;
+let name = elemento.name.toLowerCase();
+return element.name.startWith(filter.toLowerCase())
+//Na primeira linha buscamos o valor do filtro que está armazenado no searchParams *"estate de parâmetros"*
+Na segunda verificamos se existe elemento, senão, não filtra.
+Na terceira buscamo o nome do elemento que está passando no momento e diminuimos sua caixa, feito isso, 
+Na linha seguinte retornamos esse elemento se ele começar com o filtro, que é o elemento filtrador
+}
+).map(//renderiza a lista)}
+
+
+
+
+NavLink = Utilizado para agrupar vários links, difere de link pois esse podemos estilizar com um objeto e operadores ternários, desse modo,
+<NavLink style={({isActive})={
+	return{
+	color:isActive?'red':'green'
+	}
+}}
+to={'/Rota'}
+key={chaveDaLista}
+>
+</NavList>
+
+****** RECOMENDO QUE UTILIZE A FUNÇÃO QUE ARMAZENA O ELEMENTO DE BUSCA PARA QUE O FILTRO NÃO SEJA REMOVIDO AO SELECIONAR O ELEMENTO
+
+function QueryNavLink({to, ...props}){
+	let locate = useLocation()//AQUI DEVE SER IMPORTADO COM O react-router-dom
+	<NavLink to={to + location.search} {...props}/>
+}
+
+
