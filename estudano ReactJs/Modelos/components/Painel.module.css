@@ -1,0 +1,11 @@
+.painel{
+    width:500px;
+    height:500px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px 0 #fff;
+    background-color: #fff;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
