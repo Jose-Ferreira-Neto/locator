@@ -1,0 +1,17 @@
+.userInfo {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width:100%;
+}
+.userInfo span{
+    justify-self: flex-start;
+}
+
+.userInfo span:hover{
+    border: 1px solid #000;
+    box-shadow: 0 0 5px 0 #000;
+    border-radius: 5px;
+    padding: 25px;
+}

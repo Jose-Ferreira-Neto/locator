@@ -1,0 +1,31 @@
+
+
+
+
+
+.options{
+    width: 450px;
+    height: 100px;
+    border-radius: 10px;
+    background-color: aquamarine;
+    box-shadow: 0 0 2px 0 #000;
+    padding: 10px;
+}
+.btn{
+    width: 150px;
+    height: 40px;
+    border-radius: 50px;
+    background-color:green;
+    border: 1px solid #8fd694 ;
+    color:white;
+}
+.btn:hover{
+    background-color:darkgreen;
+    border: 1px solid green ;
+    color:whitesmoke;
+    box-shadow: 0 0 2px 0 #000;
+}
+.position{
+    position: relative;
+    top:10px;
+}
